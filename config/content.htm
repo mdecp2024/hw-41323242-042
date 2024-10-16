@@ -50,7 +50,74 @@ def print_number_pyramid(rows):
  *******
 *********
 </pre>
-<p><br/><br/></p><h1>HW 4</h1>
+<p><br/><br/></p><h3>w8</h3>
+<p><img alt="" height="314" src="/images/螢幕擷取畫面 2024-10-16 122110.png" width="574"/></p>
+<p><img alt="" height="330" src="/images/螢幕擷取畫面 2024-10-16 120959.png" width="585"/></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from coppeliasim_zmqremoteapi_client import RemoteAPIClient
+import time
+import keyboard
+
+# 利用 zmqRemoteAPI 以 23000 對場景伺服器進行連線
+client = RemoteAPIClient('120.113.99.54', 23000)
+# 以 getObject 方法取得場景物件
+sim = client.getObject('sim')
+box = sim.getObject('/box')
+
+# 啟動模擬
+sim.startSimulation()
+
+# 設定立方體的尺寸和初始位置
+cube_size = 0.2  # 20 cm
+spacing = 0.5  # 50 cm 之間的距離（可根據需求調整）
+
+# 擺放立方體的行數和每行的數量
+rows = 5  # 從第 1 行到第 5 行
+cubes_in_row = [1, 3, 5, 7, 9]  # 每行立方體的數量
+
+# 在正的 Y 方向擺放立方體
+for row in range(rows):
+    # 計算每行的起始 x 位置，讓其對稱
+    start_row_x = - (cubes_in_row[row] - 1) * spacing / 2
+    
+    for col in range(cubes_in_row[row]):
+        # 計算每個立方體的位置
+        x_position = start_row_x + col * spacing
+        y_position = row * spacing  # 垂直方向上每行間距
+        
+        # 建立立方體
+        cube_handle = sim.createPrimitiveShape(sim.primitiveshape_cuboid, [cube_size, cube_size, cube_size], 0)
+        sim.setObjectPosition(cube_handle, -1, [x_position, y_position, cube_size / 2])  # z 方向上升到立方體的中心
+
+# 在負的 Y 方向擺放立方體
+for row in range(rows):
+    # 計算每行的起始 x 位置，讓其對稱
+    start_row_x = - (cubes_in_row[row] - 1) * spacing / 2
+    
+    for col in range(cubes_in_row[row]):
+        # 計算每個立方體的位置
+        x_position = start_row_x + col * spacing
+        y_position = -row * spacing  # 負的 Y 方向
+        
+        # 建立立方體
+        cube_handle = sim.createPrimitiveShape(sim.primitiveshape_cuboid, [cube_size, cube_size, cube_size], 0)
+        sim.setObjectPosition(cube_handle, -1, [x_position, y_position, cube_size / 2])  # z 方向上升到立方體的中心
+
+# 完成立方體的擺放
+print("立方體已成功擺放!")
+
+# 設定主迴圈
+while True:
+    # 在這裡可以進行其他模擬操作
+    time.sleep(0.1)  # 確保循環不會過快
+
+    if keyboard.is_pressed('q'):
+        # 可以按下 q 鍵跳出重複執行迴圈
+        break
+
+# 終止模擬
+sim.stopSimulation()
+</pre>
+<p><span>盧棱講過，偉大的人是絕不會濫用自己的優點的，他們看出自己越過別人的地方，並且意識到這一點，然而絕不會因此就不謙虛。他會這麼說是有理由的。需要考慮周詳學習python的影響及因應對策。培根講過一句值得人反覆尋思的話，尊重人民，也就會受到人民的尊重。這句話語雖然很短，但令我浮想聯翩。</span></p><h1>HW 4</h1>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
