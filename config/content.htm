@@ -29,14 +29,47 @@
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/PksgwP_XaMM" title="國立虎尾科技大學機械設計工程系 - 計算機程式 題目2 41323242" width="1084"></iframe></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/JvWgo0h5yb0" title="題目 國立虎尾科技大學機械設計工程系 - 電腦程式題目2 41323242" width="1083"></iframe></p>
 <p><span>請問 Python 程式中有關變數的命名, 除了必須以"_", 以及英文大小寫字母開頭之外, 還有甚麼需要特別注意的地方? 與所謂的"關鍵字"(</span><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5705fc2a67aa1db0c0d44d6d0478b08b/raw/9d7d4227cc13cdad06544e3960c90a1adfb5c388/python_keywords.py">Keywords</a><span>)有關係嗎? 請實際舉例</span></p>
-<p>Ans:</p>
-<p>1.數名稱不能與關鍵字重名。</p>
-<p>2.必須以字母或底線開頭，並且後續可以包含字母、數字或底線。</p>
+<h5>Ans:</h5>
+<p>在 Python 中，變數命名的規則包括：</p>
+<ol>
+<li>
+<p><strong>以字母或底線開頭</strong>：變數名稱必須以字母（<code>a-z</code>, <code>A-Z</code>）或底線 (<code>_</code>) 開頭，後面可以是字母、數字或底線。例如：<code>var1</code>, <code>_var</code>, <code>my_var</code> 都是合法的。</p>
+</li>
+<li>
+<p><strong>不能使用關鍵字（Keywords）</strong>：Python 有一些保留字，稱為關鍵字，這些字是有特殊含義的，不能用作變數名稱。例如：<code>if</code>, <code>else</code>, <code>while</code>, <code>import</code> 等。</p>
+</li>
+</ol>
+<h4>舉例：</h4>
+<ul>
+<li>合法變數名稱：<code>my_var</code>, <code>var1</code>, <code>_temp</code></li>
+<li>不合法變數名稱：<code>1var</code>（不能以數字開頭）、<code>if</code>（是關鍵字）</li>
+</ul>
 <p></p>
 <h4>題目三</h4>
-<p></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="360" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/N1D6tVU0by8" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - 題目三之一: 41323242" width="640"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="351" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_C9b2zX9Sa8" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - 題目三之二: 41323242" width="626"></iframe></p><h2>w7</h2>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/AiNeeeImm38" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - 題目三: 41323242" width="1083"></iframe></p>
+<p><span>在影片說明欄位及個人 w10 頁面中說明解題流程與心得</span></p>
+<h5><span>第一部分：計算恆定加速度 </span></h5>
+<p><span>問題概述： </span></p>
+<p><span>初速度： 𝑣 𝑖 = 310 km/h v i =310km/h </span></p>
+<p><span>最終速度： 𝑣 𝑓 = 0 m/s v f =0m/s </span></p>
+<p><span>距離： 𝑑 = 1000 m d=1000m </span></p>
+<p><span>解題步驟： </span></p>
+<p><span>單位轉換：</span></p>
+<p><span> 將初速度從 km/h km/h 轉換為 m/s m/s，因為公式要求以 m/s m/s 計算： 𝑣 𝑖 = 310 km/h = 86.11 m/s v i =310km/h=86.11m/s 運用公式計算加速度： 使用運動學公式： 𝑣 𝑓 2 = 𝑣 𝑖 2 + 2 𝑎 𝑑 v f 2 =v i 2 +2ad 由於最終速度 𝑣 𝑓 = 0 v f =0，可以簡化為： 𝑎 = − 𝑣 𝑖 2 2 𝑑 = − ( 86.11 ) 2 2 × 1000 = − 3.70 m/s 2 a= 2d −v i 2 = 2×1000 −(86.11) 2 =−3.70m/s 2 </span></p>
+<p><span>結論： </span></p>
+<p><span>所需的恆定加速度是 − 3.70 m/s 2 −3.70m/s 2 ，表示物體在減速。 </span></p>
+<h5><span>第二部分： 計算人口增長時間 </span></h5>
+<p><span>問題概述： </span></p>
+<p><span>初始人口：</span></p>
+<p><span> 𝑃 0 = 100 P 0 =100 目標人口： 𝑃 target = 50000 P target =50000 雙倍時間： 𝑇 = 3 小時 T=3小時</span></p>
+<p><span> 解題步驟：</span></p>
+<p><span> 運用對數增長公式：</span></p>
+<p><span> 使用公式：</span></p>
+<p><span> 𝑃 ( 𝑡 ) = 𝑃 0 × 2 𝑡 𝑇 P(t)=P 0 ×2 T t 代入目標人口，並解出時間 𝑡 t： 𝑡 = 𝑇 × log ⁡ 2 ( 𝑃 target 𝑃 0 ) t=T×log 2 ( P 0 P target ) 代入數值計算： 𝑡 = 3 × log ⁡ 2 ( 50000 100 ) = 3 × 11.29 = 33.87 小時 t=3×log 2 ( 100 50000 )=3×11.29=33.87小時 </span></p>
+<p><span>結論：</span></p>
+<p><span> 人口將在約 33.87 小時後達到 50000。 </span></p>
+<h5>心得:</h5>
+<p><span> 由於我對於程式的建構還不太熟悉，所以我借助gpt來幫助我完成w10 第三題兩題關於物理和微積分的程式構建；讓我最驚訝的是原來程式也能幫忙解開數學難題，而且速度快又正確。</span></p><h2>w7</h2>
 <h3>brython建立</h3>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Ur3XqxQLOWw" title="brython建立" width="1133"></iframe></p>
 <p></p>
