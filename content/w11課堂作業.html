@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='w7.html'>w7</a><ul class='dropdown'><li><a href='brython建立.html'>brython建立</a></li></ul><li class='has-children'><a href='w11_hw.html'>w11_hw</a><ul class='dropdown'><li><a href='w11.html'>w11</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li class='has-children'><a href='HW 3 Exam.html'>HW 3 Exam</a><ul class='dropdown'><li><a href='w6.html'>w6</a><li><a href='w8.html'>w8</a></li></li></ul></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='w7.html'>w7</a><ul class='dropdown'><li><a href='brython建立.html'>brython建立</a></li></ul><li class='has-children'><a href='w11_hw.html'>w11_hw</a><ul class='dropdown'><li><a href='w11課堂作業.html'>w11課堂作業</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li class='has-children'><a href='HW 3 Exam.html'>HW 3 Exam</a><ul class='dropdown'><li><a href='w6.html'>w6</a><li><a href='w8.html'>w8</a></li></li></ul></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w11_hw << <a href='w11_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w11</h1>
+    <div id="tipue_search_content">w11_hw << <a href='w11_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w11課堂作業</h1>
 <p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/77b76c53938ea6ba810690fb17a03a42/raw/e7ecefe564817b41c093d96f18cc2e09f6aae0ee/w11.py">課堂作業</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">n = 11 #總共的行數
 space = "_"
@@ -151,6 +151,41 @@ center = n//2
 for y in range(n):
     for x in range(n):
         print("(", x, ", ", y, ")", sep="")</pre>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/0f388f8554d98cefa381cccd74cbef51/raw/359e1c1b42048a6aedeacef7e53a9eccc80898ae/w11-2.py">課堂作業2</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+gs = 20
+
+# gs*tc = canvas width and height
+
+ctx = canvas.getContext("2d")
+
+width = 11
+height = 11
+
+'''
+ctx.lineWidth = 1
+ctx.strokeStyle = 'lightgrey'
+ctx.beginPath()
+# ctx.rect(i*gs, j*gs, gs,gs)
+ctx.rect(0, 0, 150, 100)
+ctx.stroke()
+'''
+
+for i in range(width):
+    for j in range(height):
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'lightgrey'
+        ctx.beginPath() 
+        ctx.rect(i * gs, j * gs, gs, gs)
+        ctx.stroke() 
+</pre>
 <p></p><br />w11_hw << <a href='w11_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
