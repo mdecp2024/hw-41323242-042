@@ -135,6 +135,220 @@ for i in range(width):
         ctx.rect(i * gs, j * gs, gs, gs)
         ctx.stroke() 
 </pre>
+<p></p><h2>w12</h2>
+<p>第一題 input() print()</p>
+<p>1.<a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/d8d83280950d4edd27a2aede013e0054/raw/dba91d549a462fa125a28476fe08a4922d8cde37/w12-1.py">你的名字和你來自哪裡</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">input("What's your name?")
+input("Where are you from?")</pre>
+<p></p>
+<p>2.<a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/a1e118e03e03be9d044ad00f0bfd871f/raw/e2c0edf32fcde7de37d9bb3ee4c701df0b657db7/w12-1-2.py">cat</a></p>
+<p><span>說明：</span><span>print是打印的指令,如果用以下的執行出來會出現一隻小貓(brython執行會歪掉,所以有補償空格)</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print ("   /\_/\   ")
+print (" &gt;^.^&lt;   ")
+print ("    / \    ")
+print ("   (___)___")</pre>
+<p></p>
+<p>第二題:變數</p>
+<p>1.<a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/2264d452a3aea24004dc0928dac42ae2/raw/b4952410110bdaac2d98fdafdb464704dcb6dd86/w12-2.py">你的名字 "前後"</a></p>
+<p><span>說明：設定變數後,可以使用列印指令,列印出不同變數</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">first_name = "Yang"
+last_name  = "Yong Shun"
+print (first_name)
+print (last_name)</pre>
+<p></p>
+<p>2.<a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/b3f3d50c0db7d0ff2d624d7f217148f1/raw/01ef0f35b796a9d16ea0b17786dc735a1180ec7c/w12-2-2.py">你的名字和喜歡的食物</a></p>
+<p><span>說明：使用input指令跳出詢問窗,再</span><span>使用回傳的數值與字串進行合併</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">name = input("What's your name?")
+favorite_food = input ("What is your favorite food?")
+print ("Hi! My name is " + name)
+print ("My favorite food is " + favorite_food) 
+print (name + "'s favorite food is " + favorite_food)</pre>
+<p></p>
+<p>第三題:<em>if判斷式</em></p>
+<p>1.<a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/e678450ba777ae5a1d30a34afa83740e/raw/e97bedcf5e18132113512a06d65d78cd299225d2/w12-3.py">你要買什麼書</a></p>
+<p><span> 說明：使用if判斷式判斷使用者輸入之數值(文字)是否在字串當中</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">programming_books = ["Learn python", "Python for all",  "Intro to python"]
+print (programming_books)
+wanted_book = input("Hi! What book would you like to buy?")
+print (wanted_book)
+if wanted_book in programming_books:
+    print ("Yes, we sell it!")
+else:
+    print ("Sorry, we don't sell that book")</pre>
+<p><br/><span></span></p>
+<p>第四題:<em>append()和remove()</em></p>
+<p>1.<a href="https://gist.githubusercontent.com/41323242-042/5b5d41fe575042313d047e83a870e63c/raw/ef1f23c4bf9191251b7f57b1827a0759a3c7123e/w12-4.py">購物清單</a></p>
+<p><span> 說明：使用append()進行加入接著使用remove()移除清單內無需購買之物品</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">shopping_list = ["carrots", "chocolate", "olives"] #在shopping_list變數裡面有3個字串
+print (shopping_list) #列印shopping_list變數
+new_item = input("What else do I have to buy?") #設定一個變數為new_item其等於input指令回傳之數值
+
+if new_item in shopping_list:  #如果 "變數new_item(想買的物品)"回傳之值 在"shopping_list(購物清單)"字串當中就執行以下程式
+    print (new_item + " is/are already in the shopping list") #列印 "new_item變數的數值"+字串is/are already in the shopping list
+    print (shopping_list) #列印shopping_list字串
+else:                    #反之
+    shopping_list.append(new_item) #購物清單.加入(想要購買的物品)    如果不在購物清單內那就將未在字串中物品加入購物清單
+    print (shopping_list) #列印購物清單
+#以下是移除物品的程式
+item_to_remove = input("What do I have to remove?") #item_to_remove(想要移除的物品)
+
+if item_to_remove in shopping_list: #如果 想要移除的物品在購物清單中 那就執行
+    shopping_list.remove(item_to_remove) #把購物清單.移除(想要移除的物品)
+    print (shopping_list) #列印購物清單
+else:                     #反之
+    print (item_to_remove + " is/are not in the list") #列印 想要移除的物品+is/are not in the list(不在清單中)
+    print (shopping_list) #列印購物清單</pre>
+<p style="text-align: left;">第五題:<em>index().pop()和insert()</em></p>
+<p style="text-align: left;"><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/4daa4bfa28ceb343c2e0ebafd9a6220c/raw/addef5106cbfed14e6426dee783191e587f3bc31/w12-5.py">菜單</a></p>
+<p><span>說明:index()用於從列表中找出某個述職的位置</span></p>
+<p><span>       pop()用於將列標表中的元素移除(默認為最後一個)</span></p>
+<p><span>       insert用於將字串插入</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">todays_menu = ["burger", "salad", "coke"] 
+side_dish_index = todays_menu.index("salad") 
+print (side_dish_index)
+todays_menu.pop(side_dish_index) 
+print (todays_menu) 
+todays_menu.insert(side_dish_index, "fries") 
+print (todays_menu) </pre>
+<p style="text-align: left;">第六題:<em>切片取值</em></p>
+<p style="text-align: left;"><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/203bb310c6ecaea5a6d29c0add4bc607/raw/9878825b749c5eca64907ecf3aff672be2aaba4e/w12-6.py">city</a></p>
+<p><span>說明：</span><span>[star:end:step][起點:終點:步長]</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">cities = ["San Diego", "Prague", "Cape Town", "Tokyo", "Melbourne"] 
+print (cities) 
+print (cities[1]) 
+print (cities[1:4]) 
+print (cities[1:4:2]) 
+print (cities[0:3]) 
+print (cities[:3]) 
+print (cities[2:5]) 
+print (cities[2:]) 
+print (cities[0:5:2]) 
+print (cities[::2]) 
+print (cities[4])
+print (cities[-1]) 
+print (cities[-4:-1])
+cities[3:0:-1] 
+cities[-2:-5:-1] 
+print (cities[::-1]) 
+ </pre>
+<p>第六題:<span>senses()、planets()、house()</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/34f938a9f57017b07047214904e9347c/raw/f0abcc45ed54e6cc5a7a4fda1dbdfe0cf4a2ddc2/w12-7.py">感官</a></p>
+<p>說明:</p>
+<p data-pm-slice="1 1 []">senses: 替換項目，結果：["sight", "smell", "hearing", "taste", "touch"]</p>
+<p>planets: 加入和插入行星，結果：["Mercury", "Mars", "Venus", "Earth", "Neptune", "Jupiter", "Uranus", "Saturn"]</p>
+<p>house: 刪除項目，最後刪除清單會報錯。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">senses = ["eyes", "nose", "ears", "tongue", "skin"]
+print (senses)
+senses[1] = "smell"
+print (senses)
+senses[3:5] = ["taste", "touch"]
+print (senses)
+senses[0:3:2] = ["sight", "hearing"]
+print (senses)
+planets = ["Mercury", "Mars", "Earth", "Neptune"]
+print (planets)
+planets = planets + ["Jupiter"]
+print (planets)
+planets = planets[0:2] + ["Venus"] + planets[2:5]
+print (planets)
+planets = planets[:5] + ["Uranus", "Saturn"] + planets[5:]
+print(planets)
+house = ["kitchen", "dining room", "living room", "bedroom", "bathoom", "garden", "balcony", "terrace"]
+print (house)
+del house[1]
+print (house)
+del house[4:6]
+print (house)
+del house[::2]
+print (house)
+del house
+print (house)</pre>
+<p>第八題:<span>dishes()、for() </span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/8258b7e77dd5b22797c9b8a89008de0e/raw/2cc331a7af0dd2e46aee6f60d86e4fa8966e033c/w12-8.py">朋友與他們喜歡的菜餚</a></p>
+<p>說明:dishes 的部分會在每個循環中列出所有菜肴</p>
+<p>       for 迴圈應該嵌套，以便顯示每個朋友對應的最愛菜肴。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">friends = ["Geetha", "Luca", "Daisy", "Juhan"]
+dishes  = ["sushi", "burgers", "tacos", "pizza"]
+print ("My friends' names are:")
+print (friends)
+for index in range (0,4):
+    print ("index:  " + str(index))
+    print ("friend: " + friends[index])
+    print ("Their favorite dishes are:")
+print (dishes)
+for index in range (0,4):
+    print ("index:  " + str(index))
+    print ("dish: " + dishes[index])</pre>
+<p>第九題:</p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/c029b56cd5d1775d70255750a118c322/raw/dba9f2f9d4c1614e6cb54a76a886300e1bde1407/w12-9.py"> 尋找心儀的動物</a></p>
+<p>說明:</p>
+<p data-pm-slice="1 1 []">print()：顯示訊息</p>
+<p>range()：生成數字範圍</p>
+<p>len()：取得列表長度</p>
+<p>if / else：條件判斷</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">animals = ["giraffe", "penguin", "dolphin"]
+print (animals)
+# for each position in the list
+for i in range (0, len(animals)):
+    print ("-- Beginning of loop --")
+    # print each element and its position
+    print ("The element in position " + str(i) + " is " + animals[i])
+    wanted_to_see = "penguin"
+    # for each position in the list
+for i in range (0, len(animals)):
+    # if the current animal is what you really wanted to see
+    if animals[i] == wanted_to_see:
+        # print out that that's the animal you really wanted to see
+        print ("I saw a " + animals[i] + " and I really wanted to see it!")
+    # if the current animal is not what you really wanted to see
+    else:
+        # just print out that you saw it
+        print ("I saw a " + animals[i])</pre>
+<p>第10題:</p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/9fe42eaac669d03ee6fa85f5dc6dc151/raw/d6312688e65d6954c0a1670fcd53f8dc161927b7/w12-10.py">配件列表遍歷與條件檢查</a></p>
+<p>說明:<code>for</code> 迴圈用於遍歷列表中的每個元素，並對每個元素執行特定操作。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">accessories = ["belt", "hat", "gloves", "sunglasses", "ring"]
+print (accessories)
+# for each position in the list
+for i in range (len(accessories)):
+    #print each elements and its position
+    print ("The element "  + accessories[i] + " is in position " + str(i))
+    # for each position in the list
+for i in range (len(accessories)): 
+    # if the length of the element equals 6
+    if len(accessories[i]) == 6:
+        # print the element, its position, and its number of characters
+        print ("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+        # for each position in the list
+for i in range (len(accessories)):
+    # if the length of the element equals 6
+    if len(accessories[i]) == 6:
+        # print the element, its position, and its number of characters
+        print ("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+        # defining the threshold
+n_of_characters = 6 
+# for each position in the list 
+for i in range (len(accessories)):
+    # if the length of the element is greater than the threshold
+    if len(accessories[i]) &gt; n_of_characters:
+        # print the element, its position, and its number of characters
+        print ("The element " + accessories[i] + " is in position " + str(i) + " and it has more than " + str(n_of_characters) + " characters")
+        # defining the threshold
+position = 2 
+# for each position in the list 
+for i in range (len(accessories)):
+    # if the position of the element is less then or equal to to the threshold
+    if i &lt;= position:
+        # print the element, its position, and its position characteristic
+        print ("The element " + accessories[i] + " is in position " + str(i) + ", which is less than or equal to " + str(position))
+        # defining the threshold
+position = 2 
+# for each position in the list 
+for i in range (len(accessories)):
+    # if the position of the element is greater then or equal to to the threshold
+    if i &gt;= position:
+        # print the element, its position, and its position characteristic
+        print ("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position)) </pre>
 <p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
