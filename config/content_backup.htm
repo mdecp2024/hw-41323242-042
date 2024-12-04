@@ -48,7 +48,7 @@
 <h4>題目三</h4>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/AiNeeeImm38" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - 題目三: 41323242" width="1083"></iframe></p>
 <p><span>在影片說明欄位及個人 w10 頁面中說明解題流程與心得</span></p>
-<h5><span>第一部分：計算恆定加速度 </span></h5>
+<h5><span>第一部分：計算恆定加速度</span></h5>
 <p><span>問題概述： </span></p>
 <p><span>初速度： 𝑣 𝑖 = 310 km/h v i =310km/h </span></p>
 <p><span>最終速度： 𝑣 𝑓 = 0 m/s v f =0m/s </span></p>
@@ -59,13 +59,23 @@
 <p><span>結論： </span></p>
 <p><span>所需的恆定加速度是 − 3.70 m/s 2 −3.70m/s 2 ，表示物體在減速。 </span></p>
 <h5><span>第二部分： 計算人口增長時間 </span></h5>
-<p><span>問題概述： </span></p>
-<p><span>初始人口：</span></p>
-<p><span> 𝑃 0 = 100 P 0 =100 目標人口： 𝑃 target = 50000 P target =50000 雙倍時間： 𝑇 = 3 小時 T=3小時</span></p>
-<p><span> 解題步驟：</span></p>
-<p><span> 運用對數增長公式：</span></p>
-<p><span> 使用公式：</span></p>
-<p><span> 𝑃 ( 𝑡 ) = 𝑃 0 × 2 𝑡 𝑇 P(t)=P 0 ×2 T t 代入目標人口，並解出時間 𝑡 t： 𝑡 = 𝑇 × log ⁡ 2 ( 𝑃 target 𝑃 0 ) t=T×log 2 ( P 0 P target ) 代入數值計算： 𝑡 = 3 × log ⁡ 2 ( 50000 100 ) = 3 × 11.29 = 33.87 小時 t=3×log 2 ( 100 50000 )=3×11.29=33.87小時 </span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
+Under ideal conditions a certain bacteria population is known to double every three hours.  
+Suppose that there are initially 100 bacteria. When will the population first reach 50,000 ? 
+'''
+import math
+
+# Given values
+P0 = 100  # initial population
+P_target = 50000  # target population
+T = 3  # doubling time in hours
+
+# Calculate the time when population reaches P_target
+t = T * math.log(P_target / P0, 2)
+
+print(f"The population will first reach {P_target} after {t:.2f} hours.")
+</pre>
+<p></p>
 <p><span>結論：</span></p>
 <p><span> 人口將在約 33.87 小時後達到 50000。 </span></p>
 <h5>心得:</h5>
@@ -304,6 +314,51 @@ for i in range (0, len(animals)):
     else:
         # just print out that you saw it
         print ("I saw a " + animals[i])</pre>
+<p>第10題:</p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/9fe42eaac669d03ee6fa85f5dc6dc151/raw/d6312688e65d6954c0a1670fcd53f8dc161927b7/w12-10.py">配件列表遍歷與條件檢查</a></p>
+<p>說明:<code>for</code> 迴圈用於遍歷列表中的每個元素，並對每個元素執行特定操作。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">accessories = ["belt", "hat", "gloves", "sunglasses", "ring"]
+print (accessories)
+# for each position in the list
+for i in range (len(accessories)):
+    #print each elements and its position
+    print ("The element "  + accessories[i] + " is in position " + str(i))
+    # for each position in the list
+for i in range (len(accessories)): 
+    # if the length of the element equals 6
+    if len(accessories[i]) == 6:
+        # print the element, its position, and its number of characters
+        print ("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+        # for each position in the list
+for i in range (len(accessories)):
+    # if the length of the element equals 6
+    if len(accessories[i]) == 6:
+        # print the element, its position, and its number of characters
+        print ("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+        # defining the threshold
+n_of_characters = 6 
+# for each position in the list 
+for i in range (len(accessories)):
+    # if the length of the element is greater than the threshold
+    if len(accessories[i]) &gt; n_of_characters:
+        # print the element, its position, and its number of characters
+        print ("The element " + accessories[i] + " is in position " + str(i) + " and it has more than " + str(n_of_characters) + " characters")
+        # defining the threshold
+position = 2 
+# for each position in the list 
+for i in range (len(accessories)):
+    # if the position of the element is less then or equal to to the threshold
+    if i &lt;= position:
+        # print the element, its position, and its position characteristic
+        print ("The element " + accessories[i] + " is in position " + str(i) + ", which is less than or equal to " + str(position))
+        # defining the threshold
+position = 2 
+# for each position in the list 
+for i in range (len(accessories)):
+    # if the position of the element is greater then or equal to to the threshold
+    if i &gt;= position:
+        # print the element, its position, and its position characteristic
+        print ("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position)) </pre>
 <p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
