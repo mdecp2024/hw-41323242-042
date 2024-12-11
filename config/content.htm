@@ -489,7 +489,7 @@ second_top_left_x = canvas_center_x - square_size // 2
 second_top_left_y = canvas_center_y - square_size // 2
  
 ctx.beginPath()</pre>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/7726789ab5b50f08bb6971391f2028d713dda08c/w13.py">作業13</a></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/987861a8e4ac7fa991ff945f960a471e8e0e0524/w13.py">作業13</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
 
@@ -499,73 +499,78 @@ brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
 
 # Define circle centers and radius
-x1, y1 = 200, 200  # First circle center
-x2, y2 = 300, 300  # Second circle center
-radius = 141.4  # Circle radius
+x1, y1 = 200, 200  # Center of the first circle
+x2, y2 = 300, 300  # Center of the second circle
+radius = 141.4  # Radius of the circles
 
 ctx = canvas.getContext("2d")
 
-# Draw the first circle (black border)
+# Draw the first circle (fill color and border color)
 ctx.beginPath()
 ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightgoldenrodyellow"  # Circle fill color
+ctx.fillStyle = "lightgoldenrodyellow"  # Fill color for the first circle
 ctx.fill()
 ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the circle
+ctx.strokeStyle = "black"  # Border color for the first circle
 ctx.stroke()
 
-# Draw the second circle (black border)
+# Draw the second circle (fill color and border color)
 ctx.beginPath()
 ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightseagreen"  # Circle fill color
+ctx.fillStyle = "lightseagreen"  # Fill color for the second circle
 ctx.fill()
 ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the circle
+ctx.strokeStyle = "black"  # Border color for the second circle
 ctx.stroke()
 
-# Fill the intersection of the first and second circles
+# Fill the intersection area of the two circles
 ctx.save()
 ctx.beginPath()
 ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.clip()  # Clip to the first circle
+ctx.clip()  # Set the clipping area to the first circle
 ctx.beginPath()
 ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "skyblue"
+ctx.fillStyle = "skyblue"  # Color for the intersection
 ctx.fill()
 ctx.restore()
 
 # Draw the first square (red border, purple fill)
 ctx.beginPath()
 ctx.rect(100, 100, 200, 200)
-ctx.fillStyle = "purple"  # Fill color for first square
+ctx.fillStyle = "purple"  # Fill color for the first square
 ctx.fill()
 ctx.lineWidth = 2
-ctx.strokeStyle = "red"  # Square border color
+ctx.strokeStyle = "red"  # Border color for the first square
 ctx.stroke()
 
 # Draw the second square (red border, pink fill)
 ctx.beginPath()
 ctx.rect(200, 200, 200, 200)
-ctx.fillStyle = "pink"  # Fill color for second square
+ctx.fillStyle = "pink"  # Fill color for the second square
 ctx.fill()
 ctx.stroke()
 
-# Draw diagonal line (blue)
-ctx.beginPath()
-ctx.moveTo(100, 100)
-ctx.lineTo(300, 300)
-ctx.strokeStyle = "blue"
-ctx.lineWidth = 2
-ctx.stroke()
-
-# Draw the borders of the circles (black border)
+# Draw the borders of the circles (black border) separately
 ctx.beginPath()
 ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
+ctx.lineWidth = 3  # Set border line width
+ctx.strokeStyle = "black"  # Border color for the first circle
 ctx.stroke()
 
 ctx.beginPath()
 ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.stroke()</pre>
+ctx.lineWidth = 3  # Set border line width
+ctx.strokeStyle = "black"  # Border color for the second circle
+ctx.stroke()
+
+# Now, draw the diagonal line on top and separately
+ctx.beginPath()
+ctx.moveTo(100, 100)
+ctx.lineTo(300, 300)
+ctx.strokeStyle = "blue"  # Diagonal line color
+ctx.lineWidth = 2  # Set diagonal line width
+ctx.stroke()
+</pre>
 <p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
