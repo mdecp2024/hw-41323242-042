@@ -436,9 +436,7 @@ for i in range (len(accessories)):
         # print the element, its position, and its position characteristic
         print ("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position)) </pre>
 <p></p>
-<h3>w13_hw</h3>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/605d31684d286a08eb54a9043ce8a860/raw/39fc2318357ba96edfb13c42383ccb1629543777/w13.py">一個紅色方框</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#紅色線畫正方形
+<h3>w13_hw</h3><p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/605d31684d286a08eb54a9043ce8a860/raw/39fc2318357ba96edfb13c42383ccb1629543777/w13.py">一個紅色方框</a></p><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#紅色線畫正方形
 from browser import html
 from browser import document as doc
  
@@ -452,9 +450,21 @@ ctx.lineWidth = 1
 ctx.strokeStyle = 'red'
 ctx.beginPath() 
 ctx.rect(0, 0, 200, 200)
-ctx.stroke()</pre>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/033399d33e5df4d0f204f3b9b670e05d/raw/66074aea494bba25b65ffd0d8c7460c1f5805414/w13-2.py">兩個紅色方框重疊</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+ctx.stroke()</pre><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#紅色線畫正方形
+from browser import html
+from browser import document as doc
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+ctx.strokeStyle = 'red'
+ctx.beginPath() 
+ctx.rect(0, 0, 200, 200)
+ctx.stroke()</pre><p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/033399d33e5df4d0f204f3b9b670e05d/raw/66074aea494bba25b65ffd0d8c7460c1f5805414/w13-2.py">兩個紅色方框重疊</a></p><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
  
 # 利用 html 建立 canvas 超文件物件
@@ -488,9 +498,41 @@ ctx.stroke()
 second_top_left_x = canvas_center_x - square_size // 2
 second_top_left_y = canvas_center_y - square_size // 2
  
-ctx.beginPath()</pre>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/7726789ab5b50f08bb6971391f2028d713dda08c/w13.py">作業13</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+ctx.beginPath()</pre><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+ 
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1  # 設定線條寬度
+ctx.strokeStyle = 'red'  # 設定線條顏色為紅色
+ 
+# 1. 原始正方形 (左上角在 (0, 0))
+ctx.beginPath()
+ctx.rect(0, 0, 200, 200)  # 原始正方形的大小
+ctx.stroke()
+ 
+# 設定變數
+canvas_center_x = canvas.width // 2
+canvas_center_y = canvas.height // 2
+square_size = 200
+ 
+# 2. 第二個正方形 (中心對齊)
+first_top_left_x = canvas_center_x - square_size // 2
+first_top_left_y = canvas_center_y - square_size // 2
+ 
+ctx.beginPath()
+ctx.rect(first_top_left_x, first_top_left_y, square_size, square_size)
+ctx.stroke()
+ 
+# 3. 第三個正方形 (左上角在中心)
+second_top_left_x = canvas_center_x - square_size // 2
+second_top_left_y = canvas_center_y - square_size // 2
+ 
+ctx.beginPath()</pre><p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/987861a8e4ac7fa991ff945f960a471e8e0e0524/w13.py">作業13</a></p><p></p><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
 
 # Create canvas element
@@ -499,74 +541,158 @@ brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
 
 # Define circle centers and radius
-x1, y1 = 200, 200  # First circle center
-x2, y2 = 300, 300  # Second circle center
-radius = 141.4  # Circle radius
+x1, y1 = 200, 200  # Center of the first circle
+x2, y2 = 300, 300  # Center of the second circle
+radius = 141.4  # Radius of the circles
 
 ctx = canvas.getContext("2d")
 
-# Draw the first circle (black border)
+# Draw the first circle (fill color and border color)
 ctx.beginPath()
 ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightgoldenrodyellow"  # Circle fill color
+ctx.fillStyle = "lightgoldenrodyellow"  # Fill color for the first circle
 ctx.fill()
 ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the circle
+ctx.strokeStyle = "black"  # Border color for the first circle
 ctx.stroke()
 
-# Draw the second circle (black border)
+# Draw the second circle (fill color and border color)
 ctx.beginPath()
 ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightseagreen"  # Circle fill color
+ctx.fillStyle = "lightseagreen"  # Fill color for the second circle
 ctx.fill()
 ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the circle
+ctx.strokeStyle = "black"  # Border color for the second circle
 ctx.stroke()
 
-# Fill the intersection of the first and second circles
+# Fill the intersection area of the two circles
 ctx.save()
 ctx.beginPath()
 ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.clip()  # Clip to the first circle
+ctx.clip()  # Set the clipping area to the first circle
 ctx.beginPath()
 ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "skyblue"
+ctx.fillStyle = "skyblue"  # Color for the intersection
 ctx.fill()
 ctx.restore()
 
 # Draw the first square (red border, purple fill)
 ctx.beginPath()
 ctx.rect(100, 100, 200, 200)
-ctx.fillStyle = "purple"  # Fill color for first square
+ctx.fillStyle = "purple"  # Fill color for the first square
 ctx.fill()
 ctx.lineWidth = 2
-ctx.strokeStyle = "red"  # Square border color
+ctx.strokeStyle = "red"  # Border color for the first square
 ctx.stroke()
 
 # Draw the second square (red border, pink fill)
 ctx.beginPath()
 ctx.rect(200, 200, 200, 200)
-ctx.fillStyle = "pink"  # Fill color for second square
+ctx.fillStyle = "pink"  # Fill color for the second square
 ctx.fill()
 ctx.stroke()
 
-# Draw diagonal line (blue)
-ctx.beginPath()
-ctx.moveTo(100, 100)
-ctx.lineTo(300, 300)
-ctx.strokeStyle = "blue"
-ctx.lineWidth = 2
-ctx.stroke()
-
-# Draw the borders of the circles (black border)
+# Draw the borders of the circles (black border) separately
 ctx.beginPath()
 ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
+ctx.lineWidth = 3  # Set border line width
+ctx.strokeStyle = "black"  # Border color for the first circle
 ctx.stroke()
 
 ctx.beginPath()
 ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.stroke()</pre>
-<p></p><h1>HW 2</h1>
+ctx.lineWidth = 3  # Set border line width
+ctx.strokeStyle = "black"  # Border color for the second circle
+ctx.stroke()
+
+# Now, draw the diagonal line on top and separately
+ctx.beginPath()
+ctx.moveTo(100, 100)
+ctx.lineTo(300, 300)
+ctx.strokeStyle = "blue"  # Diagonal line color
+ctx.lineWidth = 2  # Set diagonal line width
+ctx.stroke()
+</pre><pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+
+# Create canvas element
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# Define circle centers and radius
+x1, y1 = 200, 200  # Center of the first circle
+x2, y2 = 300, 300  # Center of the second circle
+radius = 141.4  # Radius of the circles
+
+ctx = canvas.getContext("2d")
+
+# Draw the first circle (fill color and border color)
+ctx.beginPath()
+ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
+ctx.fillStyle = "lightgoldenrodyellow"  # Fill color for the first circle
+ctx.fill()
+ctx.lineWidth = 2
+ctx.strokeStyle = "black"  # Border color for the first circle
+ctx.stroke()
+
+# Draw the second circle (fill color and border color)
+ctx.beginPath()
+ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
+ctx.fillStyle = "lightseagreen"  # Fill color for the second circle
+ctx.fill()
+ctx.lineWidth = 2
+ctx.strokeStyle = "black"  # Border color for the second circle
+ctx.stroke()
+
+# Fill the intersection area of the two circles
+ctx.save()
+ctx.beginPath()
+ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
+ctx.clip()  # Set the clipping area to the first circle
+ctx.beginPath()
+ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
+ctx.fillStyle = "skyblue"  # Color for the intersection
+ctx.fill()
+ctx.restore()
+
+# Draw the first square (red border, purple fill)
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)
+ctx.fillStyle = "purple"  # Fill color for the first square
+ctx.fill()
+ctx.lineWidth = 2
+ctx.strokeStyle = "red"  # Border color for the first square
+ctx.stroke()
+
+# Draw the second square (red border, pink fill)
+ctx.beginPath()
+ctx.rect(200, 200, 200, 200)
+ctx.fillStyle = "pink"  # Fill color for the second square
+ctx.fill()
+ctx.stroke()
+
+# Draw the borders of the circles (black border) separately
+ctx.beginPath()
+ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
+ctx.lineWidth = 3  # Set border line width
+ctx.strokeStyle = "black"  # Border color for the first circle
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
+ctx.lineWidth = 3  # Set border line width
+ctx.strokeStyle = "black"  # Border color for the second circle
+ctx.stroke()
+
+# Now, draw the diagonal line on top and separately
+ctx.beginPath()
+ctx.moveTo(100, 100)
+ctx.lineTo(300, 300)
+ctx.strokeStyle = "blue"  # Diagonal line color
+ctx.lineWidth = 2  # Set diagonal line width
+ctx.stroke()
+</pre><p>ㄒ</p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
