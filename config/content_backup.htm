@@ -154,12 +154,12 @@ print(f"The population will first reach {P_target} after {t:.2f} hours.")
 <p><span> 人口將在約 33.87 小時後達到 50000。 </span></p>
 <h5>心得:</h5>
 <p><span> 由於我對於程式的建構還不太熟悉，所以我借助gpt來幫助我完成w10 第三題兩題關於物理和微積分的程式構建；讓我最驚訝的是原來程式也能幫忙解開數學難題，而且速度快又正確。</span></p>
-<h3>w7</h3>
-<h4>brython建立</h4>
+<h2>w7</h2>
+<h3>brython建立</h3>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Ur3XqxQLOWw" title="brython建立" width="1133"></iframe></p>
 <p></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="575" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/GIvxbvsN8wQ" title="我已經會用簡單的python程式" width="1076"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="575" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/s5LTzsWES0o" title="上傳到個人作業倉儲" width="1076"></iframe></p><h3>w11_hw</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="575" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/s5LTzsWES0o" title="上傳到個人作業倉儲" width="1076"></iframe></p><h2>w11_hw</h2>
 <p>以下影片說明如何利用近端可攜系統維護個人作業網站:</p>
 <p></p>
 <p>1.  已知可以用 Python 程式<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5e6eda7a004c15fa7262b9a80bfa4af6/raw/c2225ac22f32ee8485a630b42cf3f4d8567bb661/up_to_down_pyramid.py">由上往下列印三角形 *</a>, 或<a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5e6eda7a004c15fa7262b9a80bfa4af6/raw/56793c72d4495d564e3cc6214ed5fb68dbd2b21d/left_to_right_pyramid.py">由左往右列印三角形 *</a>, 請將此程式延伸到可以在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域. 完成後請將程式碼存入個人 Gist 後, 直接在個人作業網站中的 Brython 頁面中執行. (提示: ?src=gist_script_URL)</p>
@@ -220,7 +220,7 @@ for i in range(width):
         ctx.rect(i * gs, j * gs, gs, gs)
         ctx.stroke() 
 </pre>
-<p></p><h3>w12_hw</h3>
+<p></p><h2>w12_hw</h2>
 <p><strong>第一題 input() print()</strong></p>
 <p>1.<a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/d8d83280950d4edd27a2aede013e0054/raw/dba91d549a462fa125a28476fe08a4922d8cde37/w12-1.py">你的名字和你來自哪裡</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">input("What's your name?")
@@ -434,8 +434,7 @@ for i in range (len(accessories)):
     if i &gt;= position:
         # print the element, its position, and its position characteristic
         print ("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position)) </pre>
-<p></p>
-<h3>w13_hw</h3>
+<p></p><h2>w13_hw</h2>
 <p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/033399d33e5df4d0f204f3b9b670e05d/raw/66074aea494bba25b65ffd0d8c7460c1f5805414/w13-2.py">兩個紅色方框重疊</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
@@ -507,91 +506,137 @@ second_top_left_x = canvas_center_x - square_size // 2
 second_top_left_y = canvas_center_y - square_size // 2
  
 ctx.beginPath()</pre>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/987861a8e4ac7fa991ff945f960a471e8e0e0524/w13.py">作業13</a></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/3c696e4c2b561a84eaf2cf0edaeaeffc23194523/w13.py">作業13</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
-
-# Create canvas element
+import math
+  
 canvas = html.CANVAS(width=500, height=500)
 brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
-
-# Define circle centers and radius
-x1, y1 = 200, 200  # Center of the first circle
-x2, y2 = 300, 300  # Center of the second circle
-radius = 141.4  # Radius of the circles
-
+  
 ctx = canvas.getContext("2d")
-
-# Draw the first circle (fill color and border color)
+ctx.lineWidth = 4
+ 
+#混色的
+ctx.globalCompositeOperation = "screem"
+ 
+ 
+#黑邊圓*2(每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+#第一個圓
 ctx.beginPath()
-ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightgoldenrodyellow"  # Fill color for the first circle
-ctx.fill()
-ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the first circle
-ctx.stroke()
-
-# Draw the second circle (fill color and border color)
-ctx.beginPath()
-ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightseagreen"  # Fill color for the second circle
-ctx.fill()
-ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the second circle
-ctx.stroke()
-
-# Fill the intersection area of the two circles
-ctx.save()
-ctx.beginPath()
-ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.clip()  # Set the clipping area to the first circle
-ctx.beginPath()
-ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "skyblue"  # Color for the intersection
-ctx.fill()
-ctx.restore()
-
-# Draw the first square (red border, purple fill)
-ctx.beginPath()
-ctx.rect(100, 100, 200, 200)
-ctx.fillStyle = "purple"  # Fill color for the first square
-ctx.fill()
-ctx.lineWidth = 2
-ctx.strokeStyle = "red"  # Border color for the first square
-ctx.stroke()
-
-# Draw the second square (red border, pink fill)
-ctx.beginPath()
-ctx.rect(200, 200, 200, 200)
-ctx.fillStyle = "pink"  # Fill color for the second square
+ctx.arc(160, 160, 141, 0.25 * math.pi,0.75 * math.pi)
+ctx.fillStyle = "Turquoise"
 ctx.fill()
 ctx.stroke()
-
-# Draw the borders of the circles (black border) separately
+ 
 ctx.beginPath()
-ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.lineWidth = 3  # Set border line width
-ctx.strokeStyle = "black"  # Border color for the first circle
+ctx.arc(160, 160, 141, 0.75 * math.pi,1.25 * math.pi)
+ctx.fillStyle = "Tomato"
+ctx.fill()
 ctx.stroke()
-
+ 
 ctx.beginPath()
-ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.lineWidth = 3  # Set border line width
-ctx.strokeStyle = "black"  # Border color for the second circle
+ctx.arc(160, 160, 141, 1.25 * math.pi,1.75 * math.pi)
+ctx.fillStyle = "SpringGreen"
+ctx.fill()
 ctx.stroke()
-
-# Now, draw the diagonal line on top and separately
+ 
 ctx.beginPath()
-ctx.moveTo(100, 100)
-ctx.lineTo(300, 300)
-ctx.strokeStyle = "blue"  # Diagonal line color
-ctx.lineWidth = 2  # Set diagonal line width
+ctx.arc(160, 160, 141, 1.75 * math.pi,0.25 * math.pi)
+ctx.fillStyle = "FloralWhite"
+ctx.fill()
 ctx.stroke()
-</pre>
+ 
+#第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi,1.75 * math.pi)
+ctx.fillStyle = "Purple"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi,0.25 * math.pi)
+ctx.fillStyle = "OliveDrab"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi,0.75 * math.pi)
+ctx.fillStyle = "Orange"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi,1.25 * math.pi)
+ctx.fillStyle = "MediumVioletRed"
+ctx.fill()
+ctx.stroke()
+ 
+ 
+#紅方形*2(4個三角形)
+ctx.strokeStyle = 'Purple'
+ctx.beginPath()
+ctx.moveTo(60,60)
+ctx.lineTo(60,260)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Gold"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(60,60)
+ctx.lineTo(260,60)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Indigo"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(360,160)
+ctx.lineTo(360,360)
+ctx.fillStyle = "Cyan"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(160,360)
+ctx.lineTo(360,360)
+ctx.fillStyle = "CornflowerBlue"
+ctx.fill()
+ctx.stroke()
+ 
+  
+#重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(160,260)
+ctx.lineTo(260,260)
+ctx.fillStyle = "MediumOrchid"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(260,160)
+ctx.lineTo(260,260)
+ctx.fillStyle = "SlateBlue"
+ctx.fill()
+ctx.stroke()
+ 
+ 
+#藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath() 
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 260)
+ctx.stroke() </pre>
 <p>心得:</p>
-<p>w13的功課上課都有教到，裡面有些程式理解過後就能加以利用，但是程式碼有些地方我並不是很了解，像是填加對角線和各區域塗色的部分，所以我利用ai來幫助我，這串程式碼才得以完成。</p><h3>w14_hw</h3>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/e2f1e9ff3974b190f62b5067b27dc0de/raw/d4d8e2a3fd43dae59d37d8fcd3eee1327f961c23/w14.py">課堂作業</a></p>
+<p>w13的功課上課都有教到，裡面有些程式理解過後就能加以利用，但是程式碼有些地方我並不是很了解，像是填加對角線和各區域塗色的部分，所以我利用ai來幫助我，這串程式碼才得以完成。</p><h2>w14_ex</h2>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/e2f1e9ff3974b190f62b5067b27dc0de/raw/a8a61e7338a1f873a8e4710a0c47821a9befab07/w14.py">課堂作業</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
 import random
@@ -698,11 +743,187 @@ x3, y3, r3 = 200, 100, 100  # 圓3：圓心 (200, 100)，半徑 100
  
 # 呼叫畫圓函式，並繪製三個圓
 draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
+</pre>
+<p><span>請根據兩個圓繪圖所圍成的</span><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/0e370b2ad0c429ab4c8905244022c27cfca8cfba/two_cicle_fill_ex1.py">區域</a><span>(目前圍成三個區域, 但若圓心移動可能彼此獨立)進行不同顏色著色, 條件是當各圓半徑與圓心座標變動時, 程式只需輸入兩個圓的圓心座標與半徑, 就可以完成各區域的著色任務.</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/6bda2cc852130ee296090600273a28fb/raw/427c5f297ca0f46453ff2266b05bde83b52af307/w14_ex.py">Ans</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
 
-具有快顯功能表
+# 利用 html 創建 canvas 元素
+canvas = html.CANVAS(width=600, height=600)  # 調整畫布大小以容納圓形
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
 
+ctx = canvas.getContext("2d")
 
-具有快顯功能表</pre>
+grid_size = 10
+ctx.lineWidth = 1
+
+# HTML 表單，用於用戶輸入圓心和半徑
+def create_input_form():
+    # 創建表單元素
+    form_div = html.DIV(id="form-div")
+    form_div &lt;= html.H3("請輸入圓心座標和半徑:")
+    
+    # 創建輸入框和標籤
+    form_div &lt;= html.LABEL("第一個圓心X座標: ")
+    form_div &lt;= html.INPUT(id="circle1_center_x", value="200")  # 預設值200
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第一個圓心Y座標: ")
+    form_div &lt;= html.INPUT(id="circle1_center_y", value="200")  # 預設值200
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第一個圓半徑: ")
+    form_div &lt;= html.INPUT(id="circle1_radius", value="141.4")  # 預設值141.4
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第二個圓心X座標: ")
+    form_div &lt;= html.INPUT(id="circle2_center_x", value="300")  # 預設值300
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第二個圓心Y座標: ")
+    form_div &lt;= html.INPUT(id="circle2_center_y", value="300")  # 預設值300
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第二個圓半徑: ")
+    form_div &lt;= html.INPUT(id="circle2_radius", value="141.4")  # 預設值141.4
+    form_div &lt;= html.BR()
+
+    form_div &lt;= html.LABEL("第三個圓心X座標: ")
+    form_div &lt;= html.INPUT(id="circle3_center_x", value="400")  # 預設值400
+    form_div &lt;= html.BR()
+
+    form_div &lt;= html.LABEL("第三個圓心Y座標: ")
+    form_div &lt;= html.INPUT(id="circle3_center_y", value="400")  # 預設值400
+    form_div &lt;= html.BR()
+
+    form_div &lt;= html.LABEL("第三個圓半徑: ")
+    form_div &lt;= html.INPUT(id="circle3_radius", value="141.4")  # 預設值141.4
+    form_div &lt;= html.BR()
+    
+    # 創建提交按鈕
+    form_div &lt;= html.BUTTON("提交", id="submit-btn")
+    
+    brython_div &lt;= form_div
+
+# 獲取用戶輸入的圓心和半徑
+def get_user_input():
+    circle1_center_x = float(doc["circle1_center_x"].value)
+    circle1_center_y = float(doc["circle1_center_y"].value)
+    circle1_radius = float(doc["circle1_radius"].value)
+    
+    circle2_center_x = float(doc["circle2_center_x"].value)
+    circle2_center_y = float(doc["circle2_center_y"].value)
+    circle2_radius = float(doc["circle2_radius"].value)
+    
+    circle3_center_x = float(doc["circle3_center_x"].value)
+    circle3_center_y = float(doc["circle3_center_y"].value)
+    circle3_radius = float(doc["circle3_radius"].value)
+    
+    return (circle1_center_x, circle1_center_y, circle1_radius), (circle2_center_x, circle2_center_y, circle2_radius), (circle3_center_x, circle3_center_y, circle3_radius)
+
+# 畫多個圓並填充區域
+def draw_circles_and_fill_regions(circle1_center, circle1_radius, circle2_center, circle2_radius, circle3_center, circle3_radius):
+    # 清除畫布，防止重疊
+    ctx.clearRect(0, 0, 600, 600)
+    
+    # 繪製三個圓並填充其區域
+    ctx.strokeStyle = 'black'
+    
+    # 第一個圓
+    ctx.fillStyle = 'green'  # 第一個圓的填充顏色
+    ctx.beginPath()
+    ctx.arc(circle1_center[0], circle1_center[1], circle1_radius, 0, 2 * math.pi)
+    ctx.fill()  # 填充圓
+    ctx.stroke()
+
+    # 第二個圓
+    ctx.fillStyle = 'red'  # 第二個圓的填充顏色
+    ctx.beginPath()
+    ctx.arc(circle2_center[0], circle2_center[1], circle2_radius, 0, 2 * math.pi)
+    ctx.fill()  # 填充圓
+    ctx.stroke()
+
+    # 第三個圓
+    ctx.fillStyle = 'yellow'  # 第三個圓的填充顏色
+    ctx.beginPath()
+    ctx.arc(circle3_center[0], circle3_center[1], circle3_radius, 0, 2 * math.pi)
+    ctx.fill()  # 填充圓
+    ctx.stroke()
+
+    # 判斷點是否在第一個圓內
+    def point_in_circle1(x, y):
+        cx, cy, r = circle1_center[0], circle1_center[1], circle1_radius
+        return (x - cx) ** 2 + (y - cy) ** 2 &lt; r ** 2
+
+    # 判斷點是否在第二個圓內
+    def point_in_circle2(x, y):
+        cx, cy, r = circle2_center[0], circle2_center[1], circle2_radius
+        return (x - cx) ** 2 + (y - cy) ** 2 &lt; r ** 2
+    
+    # 判斷點是否在第三個圓內
+    def point_in_circle3(x, y):
+        cx, cy, r = circle3_center[0], circle3_center[1], circle3_radius
+        return (x - cx) ** 2 + (y - cy) ** 2 &lt; r ** 2
+
+    # 根據區域確定顏色
+    def get_region_color(x, y):
+        # 判斷點在哪些圓內
+        in_circle1 = point_in_circle1(x, y)
+        in_circle2 = point_in_circle2(x, y)
+        in_circle3 = point_in_circle3(x, y)
+
+        # 三個區域：
+        if in_circle1 and not in_circle2 and not in_circle3:
+            return 'green'  # 只在第一個圓內，填充綠色
+        elif in_circle2 and not in_circle1 and not in_circle3:
+            return 'red'  # 只在第二個圓內，填充紅色
+        elif in_circle3 and not in_circle1 and not in_circle2:
+            return 'yellow'  # 只在第三個圓內，填充黃色
+        elif in_circle1 and in_circle2 and not in_circle3:
+            return 'blue'  # 在兩個圓交集區域，填充藍色
+        elif in_circle1 and in_circle3 and not in_circle2:
+            return 'purple'  # 在第一個和第三個圓交集區域，填充紫色
+        elif in_circle2 and in_circle3 and not in_circle1:
+            return 'orange'  # 在第二個和第三個圓交集區域，填充橙色
+        elif in_circle1 and in_circle2 and in_circle3:
+            return 'brown'  # 在三個圓交集區域，填充棕色
+        else:
+            return None  # 三個圓之外不填充
+
+    # 掃描並填充區域
+    def scan_and_draw():
+        for x in range(0, 600, grid_size):  # 遍歷畫布範圍，左到右
+            for y in range(0, 600, grid_size):  # 從上到下
+                color = get_region_color(x, y)  # 獲取當前點的區域顏色
+                if color:  # 只有當顏色不為 None 時才繪製
+                    # 繪製填充的矩形
+                    ctx.fillStyle = color
+                    ctx.fillRect(x, y, grid_size, grid_size)  # 填充一個區域的矩形，而不是小圓點
+
+    # 開始掃描並繪製顏色
+    scan_and_draw()
+
+# 創建輸入表單
+create_input_form()
+
+# 設置點擊提交按鈕的事件
+def on_submit(event):
+    # 獲取用戶輸入的圓心座標和半徑
+    circle1_center, circle2_center, circle3_center = get_user_input()
+
+    # 調用函數繪製圓並填充區域
+    draw_circles_and_fill_regions(
+        circle1_center[0:2], circle1_center[2],
+        circle2_center[0:2], circle2_center[2],
+        circle3_center[0:2], circle3_center[2]
+    )
+
+# 綁定點擊提交按鈕事件
+doc["submit-btn"].bind("click", on_submit)
+</pre>
 <p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
@@ -722,7 +943,7 @@ draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
 <h2>HW 3 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3>w6</h3>
+<h2>w6</h2>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#help(range)
 for i in range(1,5):
     print(i)
@@ -750,8 +971,7 @@ def print_number_pyramid(rows):
  *******
 *********
 </pre>
-<p><br/><br/></p>
-<h3>w8</h3>
+<p><br/><br/></p><h3>w8</h3>
 <p><img alt="" height="314" src="/images/螢幕擷取畫面 2024-10-16 122110.png" width="574"/></p>
 <p><img alt="" height="330" src="/images/螢幕擷取畫面 2024-10-16 120959.png" width="585"/></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from coppeliasim_zmqremoteapi_client import RemoteAPIClient

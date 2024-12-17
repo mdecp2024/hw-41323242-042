@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w10.html'>w10</a><li><a href='w7.html'>w7</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_hw.html'>w14_hw</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li class='has-children'><a href='HW 3 Exam.html'>HW 3 Exam</a><ul class='dropdown'><li><a href='w6.html'>w6</a><li><a href='w8.html'>w8</a></li></li></ul></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='w7.html'>w7</a><ul class='dropdown'><li><a href='brython建立.html'>brython建立</a></li></ul><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_ex.html'>w14_ex</a></li></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a><li><a href='w6.html'>w6</a><li><a href='w8.html'>w8</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w14_hw</h1>
+    <div id="tipue_search_content">w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w14_ex</h1>
 <p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/e2f1e9ff3974b190f62b5067b27dc0de/raw/a8a61e7338a1f873a8e4710a0c47821a9befab07/w14.py">課堂作業</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
@@ -249,6 +249,186 @@ x3, y3, r3 = 200, 100, 100  # 圓3：圓心 (200, 100)，半徑 100
  
 # 呼叫畫圓函式，並繪製三個圓
 draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)
+</pre>
+<p><span>請根據兩個圓繪圖所圍成的</span><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/0e370b2ad0c429ab4c8905244022c27cfca8cfba/two_cicle_fill_ex1.py">區域</a><span>(目前圍成三個區域, 但若圓心移動可能彼此獨立)進行不同顏色著色, 條件是當各圓半徑與圓心座標變動時, 程式只需輸入兩個圓的圓心座標與半徑, 就可以完成各區域的著色任務.</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/6bda2cc852130ee296090600273a28fb/raw/427c5f297ca0f46453ff2266b05bde83b52af307/w14_ex.py">Ans</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
+
+# 利用 html 創建 canvas 元素
+canvas = html.CANVAS(width=600, height=600)  # 調整畫布大小以容納圓形
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+
+grid_size = 10
+ctx.lineWidth = 1
+
+# HTML 表單，用於用戶輸入圓心和半徑
+def create_input_form():
+    # 創建表單元素
+    form_div = html.DIV(id="form-div")
+    form_div &lt;= html.H3("請輸入圓心座標和半徑:")
+    
+    # 創建輸入框和標籤
+    form_div &lt;= html.LABEL("第一個圓心X座標: ")
+    form_div &lt;= html.INPUT(id="circle1_center_x", value="200")  # 預設值200
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第一個圓心Y座標: ")
+    form_div &lt;= html.INPUT(id="circle1_center_y", value="200")  # 預設值200
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第一個圓半徑: ")
+    form_div &lt;= html.INPUT(id="circle1_radius", value="141.4")  # 預設值141.4
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第二個圓心X座標: ")
+    form_div &lt;= html.INPUT(id="circle2_center_x", value="300")  # 預設值300
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第二個圓心Y座標: ")
+    form_div &lt;= html.INPUT(id="circle2_center_y", value="300")  # 預設值300
+    form_div &lt;= html.BR()
+    
+    form_div &lt;= html.LABEL("第二個圓半徑: ")
+    form_div &lt;= html.INPUT(id="circle2_radius", value="141.4")  # 預設值141.4
+    form_div &lt;= html.BR()
+
+    form_div &lt;= html.LABEL("第三個圓心X座標: ")
+    form_div &lt;= html.INPUT(id="circle3_center_x", value="400")  # 預設值400
+    form_div &lt;= html.BR()
+
+    form_div &lt;= html.LABEL("第三個圓心Y座標: ")
+    form_div &lt;= html.INPUT(id="circle3_center_y", value="400")  # 預設值400
+    form_div &lt;= html.BR()
+
+    form_div &lt;= html.LABEL("第三個圓半徑: ")
+    form_div &lt;= html.INPUT(id="circle3_radius", value="141.4")  # 預設值141.4
+    form_div &lt;= html.BR()
+    
+    # 創建提交按鈕
+    form_div &lt;= html.BUTTON("提交", id="submit-btn")
+    
+    brython_div &lt;= form_div
+
+# 獲取用戶輸入的圓心和半徑
+def get_user_input():
+    circle1_center_x = float(doc["circle1_center_x"].value)
+    circle1_center_y = float(doc["circle1_center_y"].value)
+    circle1_radius = float(doc["circle1_radius"].value)
+    
+    circle2_center_x = float(doc["circle2_center_x"].value)
+    circle2_center_y = float(doc["circle2_center_y"].value)
+    circle2_radius = float(doc["circle2_radius"].value)
+    
+    circle3_center_x = float(doc["circle3_center_x"].value)
+    circle3_center_y = float(doc["circle3_center_y"].value)
+    circle3_radius = float(doc["circle3_radius"].value)
+    
+    return (circle1_center_x, circle1_center_y, circle1_radius), (circle2_center_x, circle2_center_y, circle2_radius), (circle3_center_x, circle3_center_y, circle3_radius)
+
+# 畫多個圓並填充區域
+def draw_circles_and_fill_regions(circle1_center, circle1_radius, circle2_center, circle2_radius, circle3_center, circle3_radius):
+    # 清除畫布，防止重疊
+    ctx.clearRect(0, 0, 600, 600)
+    
+    # 繪製三個圓並填充其區域
+    ctx.strokeStyle = 'black'
+    
+    # 第一個圓
+    ctx.fillStyle = 'green'  # 第一個圓的填充顏色
+    ctx.beginPath()
+    ctx.arc(circle1_center[0], circle1_center[1], circle1_radius, 0, 2 * math.pi)
+    ctx.fill()  # 填充圓
+    ctx.stroke()
+
+    # 第二個圓
+    ctx.fillStyle = 'red'  # 第二個圓的填充顏色
+    ctx.beginPath()
+    ctx.arc(circle2_center[0], circle2_center[1], circle2_radius, 0, 2 * math.pi)
+    ctx.fill()  # 填充圓
+    ctx.stroke()
+
+    # 第三個圓
+    ctx.fillStyle = 'yellow'  # 第三個圓的填充顏色
+    ctx.beginPath()
+    ctx.arc(circle3_center[0], circle3_center[1], circle3_radius, 0, 2 * math.pi)
+    ctx.fill()  # 填充圓
+    ctx.stroke()
+
+    # 判斷點是否在第一個圓內
+    def point_in_circle1(x, y):
+        cx, cy, r = circle1_center[0], circle1_center[1], circle1_radius
+        return (x - cx) ** 2 + (y - cy) ** 2 &lt; r ** 2
+
+    # 判斷點是否在第二個圓內
+    def point_in_circle2(x, y):
+        cx, cy, r = circle2_center[0], circle2_center[1], circle2_radius
+        return (x - cx) ** 2 + (y - cy) ** 2 &lt; r ** 2
+    
+    # 判斷點是否在第三個圓內
+    def point_in_circle3(x, y):
+        cx, cy, r = circle3_center[0], circle3_center[1], circle3_radius
+        return (x - cx) ** 2 + (y - cy) ** 2 &lt; r ** 2
+
+    # 根據區域確定顏色
+    def get_region_color(x, y):
+        # 判斷點在哪些圓內
+        in_circle1 = point_in_circle1(x, y)
+        in_circle2 = point_in_circle2(x, y)
+        in_circle3 = point_in_circle3(x, y)
+
+        # 三個區域：
+        if in_circle1 and not in_circle2 and not in_circle3:
+            return 'green'  # 只在第一個圓內，填充綠色
+        elif in_circle2 and not in_circle1 and not in_circle3:
+            return 'red'  # 只在第二個圓內，填充紅色
+        elif in_circle3 and not in_circle1 and not in_circle2:
+            return 'yellow'  # 只在第三個圓內，填充黃色
+        elif in_circle1 and in_circle2 and not in_circle3:
+            return 'blue'  # 在兩個圓交集區域，填充藍色
+        elif in_circle1 and in_circle3 and not in_circle2:
+            return 'purple'  # 在第一個和第三個圓交集區域，填充紫色
+        elif in_circle2 and in_circle3 and not in_circle1:
+            return 'orange'  # 在第二個和第三個圓交集區域，填充橙色
+        elif in_circle1 and in_circle2 and in_circle3:
+            return 'brown'  # 在三個圓交集區域，填充棕色
+        else:
+            return None  # 三個圓之外不填充
+
+    # 掃描並填充區域
+    def scan_and_draw():
+        for x in range(0, 600, grid_size):  # 遍歷畫布範圍，左到右
+            for y in range(0, 600, grid_size):  # 從上到下
+                color = get_region_color(x, y)  # 獲取當前點的區域顏色
+                if color:  # 只有當顏色不為 None 時才繪製
+                    # 繪製填充的矩形
+                    ctx.fillStyle = color
+                    ctx.fillRect(x, y, grid_size, grid_size)  # 填充一個區域的矩形，而不是小圓點
+
+    # 開始掃描並繪製顏色
+    scan_and_draw()
+
+# 創建輸入表單
+create_input_form()
+
+# 設置點擊提交按鈕的事件
+def on_submit(event):
+    # 獲取用戶輸入的圓心座標和半徑
+    circle1_center, circle2_center, circle3_center = get_user_input()
+
+    # 調用函數繪製圓並填充區域
+    draw_circles_and_fill_regions(
+        circle1_center[0:2], circle1_center[2],
+        circle2_center[0:2], circle2_center[2],
+        circle3_center[0:2], circle3_center[2]
+    )
+
+# 綁定點擊提交按鈕事件
+doc["submit-btn"].bind("click", on_submit)
 </pre>
 <p></p><br />w13_hw << <a href='w13_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         

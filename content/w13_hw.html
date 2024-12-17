@@ -2,7 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w10.html'>w10</a><li><a href='w7.html'>w7</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_hw.html'>w14_hw</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li class='has-children'><a href='HW 3 Exam.html'>HW 3 Exam</a><ul class='dropdown'><li><a href='w6.html'>w6</a><li><a href='w8.html'>w8</a></li></li></ul></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='w7.html'>w7</a><ul class='dropdown'><li><a href='brython建立.html'>brython建立</a></li></ul><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12_hw.html'>w12_hw</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_ex.html'>w14_ex</a></li></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a><li><a href='w6.html'>w6</a><li><a href='w8.html'>w8</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,7 +141,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw<br /><h1>w13_hw</h1>
+    <div id="tipue_search_content">w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex<br /><h1>w13_hw</h1>
 <p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/033399d33e5df4d0f204f3b9b670e05d/raw/66074aea494bba25b65ffd0d8c7460c1f5805414/w13-2.py">兩個紅色方框重疊</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
@@ -213,90 +213,136 @@ second_top_left_x = canvas_center_x - square_size // 2
 second_top_left_y = canvas_center_y - square_size // 2
  
 ctx.beginPath()</pre>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/987861a8e4ac7fa991ff945f960a471e8e0e0524/w13.py">作業13</a></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/afb0f913b15418a150bd115df6155d0a/raw/3c696e4c2b561a84eaf2cf0edaeaeffc23194523/w13.py">作業13</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
-
-# Create canvas element
+import math
+  
 canvas = html.CANVAS(width=500, height=500)
 brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
-
-# Define circle centers and radius
-x1, y1 = 200, 200  # Center of the first circle
-x2, y2 = 300, 300  # Center of the second circle
-radius = 141.4  # Radius of the circles
-
+  
 ctx = canvas.getContext("2d")
-
-# Draw the first circle (fill color and border color)
+ctx.lineWidth = 4
+ 
+#混色的
+ctx.globalCompositeOperation = "screem"
+ 
+ 
+#黑邊圓*2(每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+#第一個圓
 ctx.beginPath()
-ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightgoldenrodyellow"  # Fill color for the first circle
-ctx.fill()
-ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the first circle
-ctx.stroke()
-
-# Draw the second circle (fill color and border color)
-ctx.beginPath()
-ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "lightseagreen"  # Fill color for the second circle
-ctx.fill()
-ctx.lineWidth = 2
-ctx.strokeStyle = "black"  # Border color for the second circle
-ctx.stroke()
-
-# Fill the intersection area of the two circles
-ctx.save()
-ctx.beginPath()
-ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.clip()  # Set the clipping area to the first circle
-ctx.beginPath()
-ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.fillStyle = "skyblue"  # Color for the intersection
-ctx.fill()
-ctx.restore()
-
-# Draw the first square (red border, purple fill)
-ctx.beginPath()
-ctx.rect(100, 100, 200, 200)
-ctx.fillStyle = "purple"  # Fill color for the first square
-ctx.fill()
-ctx.lineWidth = 2
-ctx.strokeStyle = "red"  # Border color for the first square
-ctx.stroke()
-
-# Draw the second square (red border, pink fill)
-ctx.beginPath()
-ctx.rect(200, 200, 200, 200)
-ctx.fillStyle = "pink"  # Fill color for the second square
+ctx.arc(160, 160, 141, 0.25 * math.pi,0.75 * math.pi)
+ctx.fillStyle = "Turquoise"
 ctx.fill()
 ctx.stroke()
-
-# Draw the borders of the circles (black border) separately
+ 
 ctx.beginPath()
-ctx.arc(x1, y1, radius, 0, 2 * 3.14159)
-ctx.lineWidth = 3  # Set border line width
-ctx.strokeStyle = "black"  # Border color for the first circle
+ctx.arc(160, 160, 141, 0.75 * math.pi,1.25 * math.pi)
+ctx.fillStyle = "Tomato"
+ctx.fill()
 ctx.stroke()
-
+ 
 ctx.beginPath()
-ctx.arc(x2, y2, radius, 0, 2 * 3.14159)
-ctx.lineWidth = 3  # Set border line width
-ctx.strokeStyle = "black"  # Border color for the second circle
+ctx.arc(160, 160, 141, 1.25 * math.pi,1.75 * math.pi)
+ctx.fillStyle = "SpringGreen"
+ctx.fill()
 ctx.stroke()
-
-# Now, draw the diagonal line on top and separately
+ 
 ctx.beginPath()
-ctx.moveTo(100, 100)
-ctx.lineTo(300, 300)
-ctx.strokeStyle = "blue"  # Diagonal line color
-ctx.lineWidth = 2  # Set diagonal line width
+ctx.arc(160, 160, 141, 1.75 * math.pi,0.25 * math.pi)
+ctx.fillStyle = "FloralWhite"
+ctx.fill()
 ctx.stroke()
-</pre>
+ 
+#第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi,1.75 * math.pi)
+ctx.fillStyle = "Purple"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi,0.25 * math.pi)
+ctx.fillStyle = "OliveDrab"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi,0.75 * math.pi)
+ctx.fillStyle = "Orange"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi,1.25 * math.pi)
+ctx.fillStyle = "MediumVioletRed"
+ctx.fill()
+ctx.stroke()
+ 
+ 
+#紅方形*2(4個三角形)
+ctx.strokeStyle = 'Purple'
+ctx.beginPath()
+ctx.moveTo(60,60)
+ctx.lineTo(60,260)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Gold"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(60,60)
+ctx.lineTo(260,60)
+ctx.lineTo(260,260)
+ctx.fillStyle = "Indigo"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(360,160)
+ctx.lineTo(360,360)
+ctx.fillStyle = "Cyan"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(160,360)
+ctx.lineTo(360,360)
+ctx.fillStyle = "CornflowerBlue"
+ctx.fill()
+ctx.stroke()
+ 
+  
+#重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(160,260)
+ctx.lineTo(260,260)
+ctx.fillStyle = "MediumOrchid"
+ctx.fill()
+ctx.stroke()
+ 
+ctx.beginPath()
+ctx.moveTo(160,160)
+ctx.lineTo(260,160)
+ctx.lineTo(260,260)
+ctx.fillStyle = "SlateBlue"
+ctx.fill()
+ctx.stroke()
+ 
+ 
+#藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath() 
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 260)
+ctx.stroke() </pre>
 <p>心得:</p>
-<p>w13的功課上課都有教到，裡面有些程式理解過後就能加以利用，但是程式碼有些地方我並不是很了解，像是填加對角線和各區域塗色的部分，所以我利用ai來幫助我，這串程式碼才得以完成。</p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_hw.html'>Next</a> >> w14_hw</div>
+<p>w13的功課上課都有教到，裡面有些程式理解過後就能加以利用，但是程式碼有些地方我並不是很了解，像是填加對角線和各區域塗色的部分，所以我利用ai來幫助我，這串程式碼才得以完成。</p><br />w12_hw << <a href='w12_hw.html'>Previous</a> <a href='w14_ex.html'>Next</a> >> w14_ex</div>
         
     <!-- footer -->
       <div class="container">
