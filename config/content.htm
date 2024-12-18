@@ -924,6 +924,19 @@ def on_submit(event):
 # 綁定點擊提交按鈕事件
 doc["submit-btn"].bind("click", on_submit)
 </pre>
+<p></p><h2>w15</h2>
+<p><span>題目一: 請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"從 1 累加到 100"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/b00467c0eb7989bca1adb67d75269d89/raw/fa3a9d6015fbb2f497de0f5cc617bf44cc6d6381/w15.py">從 1 累加到 100</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 addite 函數
+def addite(start, end):
+    sum = 0
+    for i in range(start, end + 1):  # 使用 start 到 end (包括 end)
+        sum += i
+    return sum
+
+# 使用 addite 函數來計算從 1 到 100 的總和
+result = addite(1, 100)
+print("累加結果是:", result)</pre>
 <p></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
