@@ -143,17 +143,28 @@ img.add_border {
         </header>
     <div id="tipue_search_content">w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15</h1>
 <p><span>題目一: 請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"從 1 累加到 100"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</span></p>
-<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/b00467c0eb7989bca1adb67d75269d89/raw/fa3a9d6015fbb2f497de0f5cc617bf44cc6d6381/w15.py">從 1 累加到 100</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義 addite 函數
-def addite(start, end):
+<p><span><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/fb89b9d7c96d2da98993a4f4839c89c3/raw/169fd1683debb7e12723466b8e1a63cc9b7389f6/w15-2.py">從 1 累加到 100</a></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sum = 0
+
+def addto(init, upto):
     sum = 0
-    for i in range(start, end + 1):  # 使用 start 到 end (包括 end)
-        sum += i
+    #global sum
+    #init = 1
+    #upto = 100
+    # 利用 for 重複迴圈與變數加法進行累加
+    for i in range(init, upto+1):
+        sum = sum + i
+    
+    print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum))
+    
     return sum
 
-# 使用 addite 函數來計算從 1 到 100 的總和
-result = addite(1, 100)
-print("累加結果是:", result)</pre>
+#addto(1, 100)
+init, upto = 1, 100
+sum1_50 = addto(init, 50)
+sum51_100 = addto(51, upto)
+print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum1_50 + sum51_100))</pre>
+<p></p>
 <p></p><br />w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
