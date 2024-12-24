@@ -142,29 +142,49 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15</h1>
-<p><span>題目一: 請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"從 1 累加到 100"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</span></p>
-<p><span><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/fb89b9d7c96d2da98993a4f4839c89c3/raw/169fd1683debb7e12723466b8e1a63cc9b7389f6/w15-2.py">從 1 累加到 100</a></span></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sum = 0
+<p><span>題目一</span></p>
+<p><span> 請利用 Gist 與 Brython 程式環境, 在個人的課程網站中新增一個頁面, 標題為 w15, 以"從 1 累加到 100"作為 anchor 的連結標題, 使用者點擊該連結之後, 可從各自的 Brython 頁面執行程式.</span></p>
+<p><span><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/b00467c0eb7989bca1adb67d75269d89/raw/18223afb540de93839c8fc6ae80cdc356a268de5/w15.py">從 1 累加到 100</a></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 方法 1: 使用 for 迴圈
+sum = 0
+for i in range(1, 101):  # 從 1 到 100
+    sum += i
+print("累加結果是:", sum)</pre>
+<p>題目二</p>
+<p>延伸上題, 設計一個函式 addto(1, 100), 可以完成上述的累加結果. (以"addto"作為連結標題)</p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/fb89b9d7c96d2da98993a4f4839c89c3/raw/a67b1ad81f32550b1519581cc2aef05f1c643948/w15-2.py">addto</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(x,y):
+  sum = 0
+  for i in range(x,y+1):
+    sum += i  
+  print(sum)
+ 
+addto(0,100)</pre>
+<p>題目三</p>
+<p>延伸上題, 設計一個函式 add_only_even(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果. 頁面中請以 <span>add_only_even 作為連結標題.</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/144024b7c59cdc8e865fb66ebb1d0a35/raw/bbfbde87af13ef5474b0ee6f9827727423e1bead/w15-3.py">add_only_even</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_only_even(x,y):
+  sum = 0
+  for i in range(x+1,y+1,2):
+    sum += i  
+    print(sum)
+ 
+add_only_even(1,100)</pre>
+<p><span>題目四</span></p>
+<p><span>延伸上題, 設計一個函式 add_avoid_8(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加過程, 必須避開數字出現"8"的整數, 頁面中請以 add_avoid_8 作為連結標題.</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/509a44a2bb372247e28fab4cfefc27dc/raw/25e7c706d1f7dbb6c477e7f4bd29495b29dd352d/w15-4.py">add_avoid_8</a></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">def avoid8(init, addto):
+    total = 0
+    for i in range(init, addto + 1):
+     
+        if "8" in str(i):
+            continue 
+        total += i  
+    print(total) 
 
-def addto(init, upto):
-    sum = 0
-    #global sum
-    #init = 1
-    #upto = 100
-    # 利用 for 重複迴圈與變數加法進行累加
-    for i in range(init, upto+1):
-        sum = sum + i
-    
-    print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum))
-    
-    return sum
-
-#addto(1, 100)
-init, upto = 1, 100
-sum1_50 = addto(init, 50)
-sum51_100 = addto(51, upto)
-print("從" + str(init) + "累加到" + str(upto) + "=" + str(sum1_50 + sum51_100))</pre>
-<p></p>
+avoid8(1, 100)</pre>
+<p><span>完成上述題目, 請將各題目的設計思考、執行過程以及每一行所引用的 Python 程式用法, 整理在 w15 網頁中. 最後列出各題目執行後的心得.</span></p>
+<p><span>心得:這次的練習讓我更加熟悉 Python 的基本控制結構與函式設計。透過實作從簡單的累加到處理特殊條件的邏輯，我學會了如何利用 <code>for</code> 迴圈、函式封裝和範圍設定來解決問題。特別是使用 <code>range()</code> 的步進參數來過濾偶數，還有如何處理字串以避開特定數字（如包含 "8" 的數字）。這些技巧不僅提升了我的程式設計能力，也讓我對 Python 的簡潔與靈活性有了更深的體會。</span></p>
 <p></p><br />w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
         
     <!-- footer -->
