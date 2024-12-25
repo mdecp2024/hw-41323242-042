@@ -978,16 +978,108 @@ avoid8(1, 100)</pre>
 <p>完成上述流程整理後, 請將 HW2 自評分數輸入 cp2024 自評表單中.</p><h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<p><br/><br/><br/> <br/>  </p>
+<h3>w16_exam1</h3>
+<p>本項任務必須拍攝過程操作影片, 且<span>片頭要先切換到個人的課程網頁 "About" 頁面, 顯示操作者的學號與個人網頁連結</span>.</p>
+<p>題目: 請以<span>自己的學號最後四碼</span>作為繪圖的座標原點, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖座標原點), 並以 pixel=2 的黑色直線分別利用 Brython 繪圖, 標示出向右為正的 X 軸, 以及向下為正的 Y 軸, 並且利用文字標示出原點座標 (例如: (39, 32)), 之後請自選最左側圖形的起始點座標, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像 (<a href="https://www.ccplusmedia.com/wp-content/uploads/2019/10/creative-ad_landscape3.jpg">圖片來源</a>).</p>
+<p>w16_exam1</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+from math import pi, sin, cos, sqrt
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=900, height=300)  # 調整畫布大小
+brython_div = doc["brython_div1"]  # 確保 HTML 中有 id="brython_div1" 的元素
+brython_div &lt;= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 2
+ctx.strokeStyle = 'black'
+
+# 原點座標
+origin_x, origin_y = 32, 42
+pixel = 2  # 設定單位為 2 像素
+
+# 繪製 x 軸
+ctx.beginPath()
+ctx.moveTo(0, origin_y)  # x 軸起點
+ctx.lineTo(canvas.width, origin_y)  # x 軸終點
+ctx.strokeStyle = "gray"
+ctx.stroke()
+
+# 繪製 y 軸
+ctx.beginPath()
+ctx.moveTo(origin_x, 0)  # y 軸起點
+ctx.lineTo(origin_x, canvas.height)  # y 軸終點
+ctx.strokeStyle = "gray"
+ctx.stroke()
+
+# 標示原點座標
+ctx.font = "12px Arial"
+ctx.fillStyle = "black"
+ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)
+
+# 繪製橙色六邊形（保持不變）
+ctx.beginPath()
+for i in range(6):
+    angle = pi / 3 * i
+    x = origin_x + (40 * pixel) * cos(angle)  # 改變六邊形大小
+    y = origin_y + (40 * pixel) * sin(angle)
+    if i == 0:
+        ctx.moveTo(x + (50 * pixel), y + (50 * pixel))
+    else:
+        ctx.lineTo(x + (50 * pixel), y + (50 * pixel))
+ctx.closePath()
+ctx.fillStyle = "orange"
+ctx.fill()
+
+# 繪製綠色菱形（x 軸向左移 10）
+ctx.beginPath()
+ctx.moveTo(origin_x + (125 * pixel), origin_y + (15 * pixel))  # 菱形基準點
+ctx.lineTo(origin_x + (145 * pixel), origin_y + (50 * pixel))
+ctx.lineTo(origin_x + (125 * pixel), origin_y + (85 * pixel))
+ctx.lineTo(origin_x + (105 * pixel), origin_y + (50 * pixel))
+ctx.closePath()
+ctx.fillStyle = "green"
+ctx.fill()
+
+# 繪製藍色正三角形（菱形後，x 軸再向左移 20）
+triangle_side = 40  # 正三角形邊長
+height = (sqrt(3) / 2) * triangle_side  # 正三角形高度
+ctx.beginPath()
+ctx.moveTo(origin_x + (150 * pixel), origin_y + (50 * pixel))  # 頂點
+ctx.lineTo(origin_x + (150 * pixel) - (triangle_side / 2) * pixel, origin_y + (50 * pixel) + (height * pixel))  # 左下頂點
+ctx.lineTo(origin_x + (150 * pixel) + (triangle_side / 2) * pixel, origin_y + (50 * pixel) + (height * pixel))  # 右下頂點
+ctx.closePath()
+ctx.fillStyle = "blue"
+ctx.fill()
+
+# 繪製粉紅色圓形（菱形後，x 軸再向左移 20，這次再向左移 10）
+ctx.beginPath()
+ctx.arc(origin_x + (200 * pixel), origin_y + (50 * pixel), (20 * pixel), 0, 2 * pi)  # 圓形的中心點向左再移動 10
+ctx.fillStyle = "magenta"
+ctx.fill()
+
+# 繪製黃色正方形（菱形後，x 軸再向左移 20，這次再向左移 10）
+ctx.beginPath()
+ctx.rect(origin_x + (250 * pixel), origin_y + (30 * pixel), (40 * pixel), (40 * pixel))  # 正方形的左上角向左再移動 10
+ctx.fillStyle = "yellow"
+ctx.fill()
+
+# 繪製藍色矩形（菱形後，x 軸再向左移 20，這次再向左移 10）
+ctx.beginPath()
+ctx.rect(origin_x + (310 * pixel), origin_y + (40 * pixel), (60 * pixel), (20 * pixel))  # 矩形的左上角向左再移動 10
+ctx.fillStyle = "darkblue"
+ctx.fill()
+</pre>
 <p></p>
-<h1>HW 3</h1>
+<p></p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
 <h2>HW 3 Exam</h2>
+<h3>w16_exam2</h3>
 <p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h2>w6</h2>
+<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p><h2>w6</h2>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#help(range)
 for i in range(1,5):
     print(i)
@@ -1083,6 +1175,7 @@ while True:
 sim.stopSimulation()
 </pre>
 <p><span>盧棱講過，偉大的人是絕不會濫用自己的優點的，他們看出自己越過別人的地方，並且意識到這一點，然而絕不會因此就不謙虛。他會這麼說是有理由的。需要考慮周詳學習python的影響及因應對策。培根講過一句值得人反覆尋思的話，尊重人民，也就會受到人民的尊重。這句話語雖然很短，但令我浮想聯翩。</span></p><h1>HW 4</h1>
+<p>   </p>
 <h4>主題: 利用 Python 控制機電模擬系統 (20%)</h4>
 <p style="padding-left: 30px;">利用 <a href="https://solvespace.com/">https://solvespace.com/</a> 建立機械系統零組件</p>
 <p style="padding-left: 30px;">利用 <a href="https://www.coppeliarobotics.com/">CoppeliaSim</a> 建立機電模擬系統</p>
@@ -1090,10 +1183,10 @@ sim.stopSimulation()
 <p style="padding-left: 30px;">範例:</p>
 <p style="padding-left: 60px;"><a href="/downloads/cd2023_pj3ag4_zmq_football_4.7.7z">cd2023_pj3ag4_zmq_football_4.7.7z</a></p>
 <p style="padding-left: 60px;"><a href="https://localhost:9446/downloads/cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z">cd2024_2b_g6_steel_ball_platform_nxopen_copsim.7z</a></p>
-<p>完成上述流程整理後, 請將 HW4 自評分數輸入 cp2024 自評表單中.</p>
-<h2>HW 4 Exam</h2>
+<p>完成上述流程整理後, 請將 HW4 自評分數輸入 cp2024 自評表單中.</p><h2>HW 4 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
+<h3>w16_exam3</h3>
 <h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (20%)</p>
 <p>期末口頭專題報告影片:</p>
@@ -1104,8 +1197,7 @@ sim.stopSimulation()
 <p style="padding-left: 30px;">......</p>
 <p>期末報告自評成績:</p>
 <p style="padding-left: 30px;">完成上述流程後, 請將 Final Report 自評分數輸入 cp2024 自評表單中.</p>
-<p>   </p>
-<h1>Brython</h1>
+<p>   </p><h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
