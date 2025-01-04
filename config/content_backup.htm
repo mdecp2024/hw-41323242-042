@@ -979,42 +979,62 @@ avoid8(1, 100)</pre>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam1</h3>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+<p>本項任務必須拍攝過程操作影片, 且<span>片頭要先切換到個人的課程網頁 "About" 頁面, 顯示操作者的學號與個人網頁連結</span>.</p>
+<p>題目: 請以<span>自己的學號最後四碼</span>作為繪圖的座標原點, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖座標原點), 並以 pixel=2 的黑色直線分別利用 Brython 繪圖, 標示出向右為正的 X 軸, 以及向下為正的 Y 軸, 並且利用文字標示出原點座標 (例如: (39, 32)), 之後請自選最左側圖形的起始點座標, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像 (<a href="https://www.ccplusmedia.com/wp-content/uploads/2019/10/creative-ad_landscape3.jpg">圖片來源</a>).</p>
+<!-- 導入 brython 程式庫 -->
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/ab6502e5b6174b568c4b8755bed4a77f/raw/0c45322d39b19dc45359cd4c0354a2a184261fe1/w16-1.py">anchor</a></p>
+<p></p>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<script type="text/python3">
+from browser import html
 from browser import document as doc
 from math import pi, sin, cos, sqrt
-
+ 
 # 利用 html 建立 canvas 超文件物件
 canvas = html.CANVAS(width=900, height=300)  # 調整畫布大小
 brython_div = doc["brython_div1"]  # 確保 HTML 中有 id="brython_div1" 的元素
-brython_div &lt;= canvas
-
+brython_div <= canvas
+ 
 ctx = canvas.getContext("2d")
 ctx.lineWidth = 2
 ctx.strokeStyle = 'black'
-
+ 
 # 原點座標
 origin_x, origin_y = 32, 42
 pixel = 2  # 設定單位為 2 像素
-
+ 
 # 繪製 x 軸
 ctx.beginPath()
 ctx.moveTo(0, origin_y)  # x 軸起點
 ctx.lineTo(canvas.width, origin_y)  # x 軸終點
 ctx.strokeStyle = "gray"
 ctx.stroke()
-
+ 
 # 繪製 y 軸
 ctx.beginPath()
 ctx.moveTo(origin_x, 0)  # y 軸起點
 ctx.lineTo(origin_x, canvas.height)  # y 軸終點
 ctx.strokeStyle = "gray"
 ctx.stroke()
-
+ 
 # 標示原點座標
 ctx.font = "12px Arial"
 ctx.fillStyle = "black"
 ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)
-
+ 
 # 繪製橙色六邊形（保持不變）
 ctx.beginPath()
 for i in range(6):
@@ -1028,7 +1048,7 @@ for i in range(6):
 ctx.closePath()
 ctx.fillStyle = "orange"
 ctx.fill()
-
+ 
 # 繪製綠色菱形（x 軸向左移 10）
 ctx.beginPath()
 ctx.moveTo(origin_x + (125 * pixel), origin_y + (15 * pixel))  # 菱形基準點
@@ -1038,7 +1058,7 @@ ctx.lineTo(origin_x + (105 * pixel), origin_y + (50 * pixel))
 ctx.closePath()
 ctx.fillStyle = "green"
 ctx.fill()
-
+ 
 # 繪製藍色正三角形（菱形後，x 軸再向左移 20）
 triangle_side = 40  # 正三角形邊長
 height = (sqrt(3) / 2) * triangle_side  # 正三角形高度
@@ -1049,34 +1069,126 @@ ctx.lineTo(origin_x + (150 * pixel) + (triangle_side / 2) * pixel, origin_y + (5
 ctx.closePath()
 ctx.fillStyle = "blue"
 ctx.fill()
-
+ 
 # 繪製粉紅色圓形（菱形後，x 軸再向左移 20，這次再向左移 10）
 ctx.beginPath()
 ctx.arc(origin_x + (200 * pixel), origin_y + (50 * pixel), (20 * pixel), 0, 2 * pi)  # 圓形的中心點向左再移動 10
 ctx.fillStyle = "magenta"
 ctx.fill()
-
+ 
 # 繪製黃色正方形（菱形後，x 軸再向左移 20，這次再向左移 10）
 ctx.beginPath()
 ctx.rect(origin_x + (250 * pixel), origin_y + (30 * pixel), (40 * pixel), (40 * pixel))  # 正方形的左上角向左再移動 10
 ctx.fillStyle = "yellow"
 ctx.fill()
-
+ 
 # 繪製藍色矩形（菱形後，x 軸再向左移 20，這次再向左移 10）
 ctx.beginPath()
 ctx.rect(origin_x + (310 * pixel), origin_y + (40 * pixel), (60 * pixel), (20 * pixel))  # 矩形的左上角向左再移動 10
 ctx.fillStyle = "darkblue"
 ctx.fill()
-</pre>
-<p></p>
-<p></p><h1>HW 3</h1>
+</script>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/p6XTU5KDRtE" title="w16_exam1" width="1083"></iframe></p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
 <h2>HW 3 Exam</h2>
-<h3>w16_exam2</h3>
 <p>每六人為一組進行協同程式練習</p>
-<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p><h2>w6</h2>
+<p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 3 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
+<h3>w16_exam2</h3>
+<p>請在個人網頁標題為 "HW 3 Exam" 頁面之後, 加上一個第三階的頁面, 標題為 "w16_exam2".</p>
+<p>並在 "w16_exam2" 頁面中完成下列隨堂考試的要求 (20%):</p>
+<p>本項任務必須拍攝過程操作影片, 且<span>片頭要先切換到個人的課程網頁 "About" 頁面, 顯示操作者的學號與個人網頁連結</span>.</p>
+<p>題目一: 請以<span>自己的學號最後四碼</span>作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用<span> </span><span>pixel=2 的藍色直線</span>,<span> </span><span>自訂迷宮畫布大小</span>, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/baccc68394a214532ccf84928716cbe9/raw/a01be8e704fcf6c744a1512612f874b80e50f6c0/w16-2.py">迷宮</a></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 初始化畫布
+def create_canvas(id="brython_div1", width=550, height=550):
+    """
+    初始化畫布，並插入到指定的 HTML 容器中。
+    返回畫布及其 2D 繪圖上下文。
+    """
+    # 建立一個 Canvas 元素
+    canvas = html.CANVAS(id="maze_canvas", width=width, height=height)
+    # 將 Canvas 插入到指定的 HTML 元素中
+    doc[id] <= canvas
+    return canvas, canvas.getContext("2d")
+
+# 繪製迷宮
+def draw_maze(ctx, origin_x=32, origin_y=42):
+    """
+    根據原點繪製迷宮，並用紅色標記起始座標。
+    """
+    # 設定起始點的標記文字（紅色）
+    ctx.font = "12px Arial"  # 字體大小和樣式
+    ctx.fillStyle = "red"  # 填充文字顏色為紅色
+    ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)  # 在起始點附近標示文字
+
+    # 設定藍色線條樣式
+    ctx.strokeStyle = "blue"  # 設定線條顏色為藍色
+    ctx.lineWidth = 2  # 設定線條寬度為 2
+
+    # 定義迷宮的所有線條座標 (起點 x1, y1 到 終點 x2, y2)
+    lines = [
+        # 水平線條
+        (origin_x, origin_y, 230, origin_y),
+        (300, origin_y, 500, origin_y),
+        (150, 100, 400, 100),
+        (150, 300, 400, 300),
+        (origin_x, 500, 200, 500),
+        (300, 500, 500, 500),
+        (200, 400, 300, 400),
+        (origin_x, 200, 200, 200),
+
+        # 垂直線條
+        (origin_x, origin_y, origin_x, 500),
+        (500, origin_y, 500, 500),
+        (200, 100, 200, 200),
+        (400, 100, 400, 200),
+        (300, 200, 300, 300),
+        (400, 300, 400, 500),
+        (200, 400, 200, 500),
+        (150, 300, 150, 400),
+    ]
+
+    # 開始繪製線條
+    ctx.beginPath()
+    for x1, y1, x2, y2 in lines:
+        ctx.moveTo(x1, y1)  # 移動到線條的起點
+        ctx.lineTo(x2, y2)  # 畫到線條的終點
+    ctx.stroke()  # 實際繪製所有的線條
+
+# 主程式執行
+def main():
+    """
+    主函式：負責初始化畫布，並繪製迷宮。
+    """
+    # 初始化畫布，指定畫布大小為 550x550 並加入到 id="brython_div1" 的 HTML 元素中
+    canvas, ctx = create_canvas()
+
+    # 繪製迷宮，設定原點為 (32, 42)
+    draw_maze(ctx, origin_x=32, origin_y=42)
+
+# 執行主程式
+main()
+</script>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="609" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lj9E6tPgUSY" title="w16_exam2" width="1083"></iframe></p><h2>w6</h2>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#help(range)
 for i in range(1,5):
     print(i)
@@ -1184,7 +1296,133 @@ sim.stopSimulation()
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam3</h3>
-<h1>Final Report</h1>
+<p>請在個人網頁標題為 "HW 4 Exam" 頁面之後, 加上一個第三階的頁面, 標題為 "w16_exam3".</p>
+<p>並在 "w16_exam3" 頁面中完成下列隨堂考試的要求 (20%):</p>
+<p>本項任務必須拍攝過程操作影片, 且<span>片頭要先切換到個人的課程網頁 "About" 頁面, 顯示操作者的學號與個人網頁連結</span>.</p>
+<p>題目一: 請以<span>自己的學號最後四碼</span>作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用<span> </span><span>pixel=2 的黑色直線</span>,<span> </span><span>自訂迷宮畫布大小</span>, 直接在頁面畫出下列圖像, 並且<span>利用紅色連續線段標示從上方入口, 走至下方出口的路線圖</span>.</p>
+<p>繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</p>
+<p><a href="https://mdecp2024.github.io/hw-41323242-042/content/Brython.html?src=https://gist.githubusercontent.com/41323242-042/9b38b4bdf3a3cf339c81258e8a306050/raw/c96f6fc6a6a26ab81357fdc6b0fd27a1acf9900d/w16-3.py">迷宮路線</a></p>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 初始化畫布
+def create_canvas(id="brython_div1", width=550, height=550):
+    """
+    初始化畫布，並插入到指定的 HTML 容器中。
+    返回畫布及其 2D 繪圖上下文。
+    """
+    canvas = html.CANVAS(id="maze_canvas", width=width, height=height)
+    doc[id] <= canvas
+    return canvas, canvas.getContext("2d")
+
+# 繪製迷宮
+def draw_maze(ctx, origin_x=32, origin_y=42):
+    """
+    根據原點繪製迷宮，並用紅色標記起始座標。
+    """
+    # 設定起始點的標記文字（紅色）
+    ctx.font = "12px Arial"
+    ctx.fillStyle = "red"
+    ctx.fillText(f"({origin_x}, {origin_y})", origin_x + 5, origin_y - 5)
+
+    # 設定藍色線條樣式
+    ctx.strokeStyle = "blue"
+    ctx.lineWidth = 2
+
+    # 定義迷宮的所有線條座標 (起點 x1, y1 到 終點 x2, y2)
+    lines = [
+        # 水平線條
+        (origin_x, origin_y, 230, origin_y),
+        (300, origin_y, 500, origin_y),
+        (100, 100, 400, 100),
+        (150, 300, 400, 300),
+        (origin_x, 500, 200, 500),
+        (300, 500, 500, 500),
+        (200, 400, 300, 400),
+        (origin_x, 200, 200, 200),
+        # 垂直線條
+        (origin_x, origin_y, origin_x, 500),
+        (500, origin_y, 500, 500),
+        (200, 100, 200, 200),
+        (400, 100, 400, 200),
+        (300, 200, 300, 300),
+        (400, 300, 400, 500),
+        (200, 400, 200, 500),
+        (150, 300, 150, 400),
+    ]
+
+    # 開始繪製線條
+    ctx.beginPath()
+    for x1, y1, x2, y2 in lines:
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x2, y2)
+    ctx.stroke()
+
+# 自動尋找出口路徑
+def find_path():
+    """
+    定義從原點自動尋找出口的路徑，避免與牆壁重疊。
+    """
+    # 手動設計的路徑，確保不與牆壁重疊
+    return [
+        (235, 0), (235, 30), (420, 30), (420, 225),
+        (320, 225), (320, 125), (220, 125), (220, 225),
+        (75, 225), (75, 425), (150, 425), (150, 325),
+        (325, 325), (325, 425), (225, 425), (225, 460),  # 出口點
+    ]
+
+# 繪製路徑
+def draw_path(ctx, path, origin_x=32, origin_y=42):
+    """
+    繪製從入口到出口的路徑，確保路徑不穿越牆壁區域。
+    """
+    ctx.strokeStyle = "red"
+    ctx.lineWidth = 2
+    ctx.beginPath()
+    
+    # 繪製路徑
+    for i, (x, y) in enumerate(path):
+        if i == 0:
+            ctx.moveTo(x + origin_x, y + origin_y)
+        else:
+            ctx.lineTo(x + origin_x, y + origin_y)
+    ctx.stroke()
+
+# 主程式執行
+def main():
+    """
+    主函式：負責初始化畫布，並繪製迷宮及路徑。
+    """
+    # 初始化畫布，指定大小為 550x550
+    canvas, ctx = create_canvas(width=550, height=550)
+
+    # 繪製迷宮，設定原點為 (32, 42)
+    draw_maze(ctx, origin_x=32, origin_y=42)
+
+    # 自動尋找出口的路徑
+    path = find_path()
+
+    # 繪製路徑
+    draw_path(ctx, path, origin_x=32, origin_y=42)
+
+# 執行主程式
+main()
+</script><h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (20%)</p>
 <p>期末口頭專題報告影片:</p>
 <p style="padding-left: 30px;">......</p>
